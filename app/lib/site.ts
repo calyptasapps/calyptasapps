@@ -1,7 +1,7 @@
 export const site = "https://www.calyptasapps.com";
 export const support = "calyptasapps@gmail.com";
 export const developer = "https://play.google.com/store/apps/developer?id=Calyptas+Apps";
-export const privacy = "https://pages.flycricket.io/collagic-photo-edit/privacy.html";
+export const privacy = "https://www.calyptasapps.com/apps/collagic/privacy";
 export function collagicDownload(placement: string) {
   const referrer = new URLSearchParams({ utm_source: "calyptasapps_website", utm_medium: "referral", utm_campaign: "collagic", utm_content: placement });
   return `https://play.google.com/store/apps/details?id=com.calyptasapps.collagic&referrer=${encodeURIComponent(referrer.toString())}`;
