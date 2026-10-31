@@ -1,3 +1,5 @@
+> **Public repository.** Everything here, including history, is visible to anyone. Read `AGENTS.md` → “THIS REPOSITORY IS PUBLIC” before committing.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
