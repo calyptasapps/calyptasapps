@@ -42,6 +42,10 @@ export default function TextToVoice() {
           <h2 id="features">What you can do</h2>
           <div className="feature-list">{features.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div>
         </section>
+        <section className="wrap" aria-labelledby="languages">
+          <h2 id="languages">Works in your language.</h2>
+          <p>The app is available in English, Arabic, Hindi, Indonesian, Portuguese and Spanish. Speech-to-text dictation works in 27+ languages, and neural voices cover dozens more.</p>
+        </section>
         <section className="faq-section wrap">
           <h2>Questions</h2>
           <div className="faq-list">{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div>
