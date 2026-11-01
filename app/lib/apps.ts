@@ -10,6 +10,8 @@ export type AppInfo = {
   category: string;
   tagline: string;
   description: string;
+  icon: string;
+  screenshots: { src: string; title: string; alt: string }[];
   features: [string, string][];
   languages: string[];
   faqs: [string, string][];
@@ -33,6 +35,11 @@ export const apps: AppInfo[] = [
     category: "Productivity",
     tagline: "Turn any text into natural speech.",
     description: "Type, paste, scan or import your text, listen to it, then save it as an audio file you can play, share or open in any audio app.",
+    icon: "/text-to-voice/icon.webp",
+    screenshots: [
+      { src: "/text-to-voice/screen-1.webp", title: "Turn text into speech", alt: "Text to Voice reading screen" },
+      { src: "/text-to-voice/screen-2.webp", title: "Choose a voice engine", alt: "Voice engine options in Text to Voice" },
+    ],
     features: [
       ["Natural AI voices", "Pick from on-device neural voices that work offline, plus your phone's own text-to-speech voices. Preview a voice before you choose it."],
       ["Read from anything", "Type or paste text, import PDF, EPUB, DOC, DOCX, TXT or HTML files, scan a page with OCR, dictate with your microphone, or paste an article link."],

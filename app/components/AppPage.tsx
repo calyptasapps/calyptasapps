@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { AppInfo } from "../lib/apps";
 import { storeUrl } from "../lib/apps";
 import { site, support } from "../lib/site";
@@ -31,12 +32,17 @@ export default function AppPage({ app }: { app: AppInfo }) {
     <>
       <Header />
       <main id="main">
-        <section className="wrap" style={{ padding: "64px 0 32px" }}>
-          <p className="category">{app.category}</p>
-          <h1>{app.tagline}</h1>
-          <p>{app.description}</p>
-          <div className="actions"><a className="button primary" href={download}>Get it on Google Play</a></div>
-          <p className="fine-print">For Android · {app.stats.price} to download · Contains {app.stats.contains.join(" and ").toLowerCase()}</p>
+        <section className="collagic-hero app-page-hero wrap">
+          <div className="hero-copy">
+            <div className="app-identity"><Image src={app.icon} width={56} height={56} alt="" /><span>{app.name}</span></div>
+            <h1>{app.tagline}</h1>
+            <p>{app.description}</p>
+            <div className="actions"><a className="button primary" href={download}>Get it on Google Play</a><a className="text-link" href="#screens-title">See the app</a></div>
+            <p className="fine-print">For Android · {app.stats.price} to download · Contains {app.stats.contains.join(" and ").toLowerCase()}</p>
+          </div>
+          <div className="hero-gallery app-page-gallery">
+            {app.screenshots.slice(0, 2).map((screen, index) => <Image key={screen.src} className={index === 0 ? "hero-main" : "hero-side"} src={screen.src} alt={screen.alt} width={554} height={1200} sizes="(max-width:700px) 55vw, 340px" preload={index === 0} />)}
+          </div>
         </section>
 
         <section className="wrap" aria-label="App details" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
@@ -55,7 +61,14 @@ export default function AppPage({ app }: { app: AppInfo }) {
           <div className="feature-list">{app.features.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}</div>
         </section>
 
-        <section className="wrap" aria-labelledby="languages">
+        <section className="screens-section" aria-labelledby="screens-title">
+          <div className="section-heading wrap"><div><h2 id="screens-title">Take a look around.</h2><p>See {app.name} in action.</p></div></div>
+          <div className="screenshot-rail" tabIndex={0} role="region" aria-label="Scroll through app screenshots">
+            {app.screenshots.map(screen => <figure key={screen.src}><a href={screen.src} target="_blank" rel="noopener noreferrer" aria-label={`View larger screenshot: ${screen.title}`}><Image src={screen.src} alt={screen.alt} width={554} height={1200} sizes="(max-width:600px) 72vw, 280px" /></a><figcaption>{screen.title}</figcaption></figure>)}
+          </div>
+        </section>
+
+        <section className="wrap app-languages" aria-labelledby="languages">
           <h2 id="languages">Works in your language.</h2>
           <p>The app is available in {app.languages.join(", ")}.</p>
         </section>
@@ -66,6 +79,7 @@ export default function AppPage({ app }: { app: AppInfo }) {
         </section>
 
         <section className="download-section wrap">
+          <Image src={app.icon} width={64} height={64} alt="" />
           <h2>Get {app.name}.</h2>
           <p>Get it on your Android phone.</p>
           <a className="button primary" href={footerDownload}>Get it on Google Play</a>

@@ -9,3 +9,6 @@
 /* Matching features make room for each app to tell its story. */
 .featured-apps{display:grid;gap:24px}.featured--voice{background:#40315f}.featured--voice .featured-art img{width:50%;max-width:245px;border-radius:12px}.featured--voice .feature-travel{left:6%;top:5%;transform:rotate(-6deg)}.featured--voice .feature-cover{right:4%;top:12%;transform:rotate(7deg)}
 @media(max-width:650px){.featured-apps{gap:18px}.featured--voice .featured-art{min-height:385px}.featured--voice .featured-art img{width:49%;max-width:190px}.featured--voice .feature-travel{left:6%;top:4%}.featured--voice .feature-cover{right:6%;top:11%}}
+
+.app-page-gallery .hero-main,.app-page-gallery .hero-side{border-radius:12px}.app-languages{padding-block:70px 20px}.app-languages p{margin-top:20px}
+@media(max-width:650px){.app-languages{padding-block:45px 10px}}
